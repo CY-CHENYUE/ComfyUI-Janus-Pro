@@ -1,4 +1,6 @@
 import os
+import folder_paths
+import logging
 
 class JanusModelLoader:
     def __init__(self):
@@ -32,15 +34,15 @@ class JanusModelLoader:
             torch.zeros(1, dtype=dtype, device=device)
         except RuntimeError:
             dtype = torch.float16
-
-        # 获取ComfyUI根目录
-        comfy_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-        # 构建模型路径
-        model_dir = os.path.join(comfy_path, 
-                               "models", 
-                               "Janus-Pro",
-                               os.path.basename(model_name))
-        if not os.path.exists(model_dir):
+        model_folder_paths = folder_paths.get_folder_paths("Janus-Pro")
+        folder_exists = False
+        for folder_path in model_folder_paths:
+            if os.path.exists(folder_path):
+                folder_exists = True
+            logging.info(f"Searching model directory {folder_path}, exist = {folder_exists}")
+            # 构建模型路径
+            model_dir = os.path.join(folder_path,os.path.basename(model_name))
+        if not folder_exists:
             raise ValueError(f"Local model not found at {model_dir}. Please download the model and place it in the ComfyUI/models/Janus-Pro folder.")
             
         vl_chat_processor = VLChatProcessor.from_pretrained(model_dir)
