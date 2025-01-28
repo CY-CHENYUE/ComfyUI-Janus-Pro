@@ -44,7 +44,7 @@ class JanusModelLoader:
             model_dir = os.path.join(folder_path,os.path.basename(model_name))
         if not folder_exists:
             raise ValueError(f"Local model not found at {model_dir}. Please download the model and place it in the ComfyUI/models/Janus-Pro folder.")
-            
+        logging.info(f"Loading model from {model_dir}")
         vl_chat_processor = VLChatProcessor.from_pretrained(model_dir)
         
         vl_gpt = AutoModelForCausalLM.from_pretrained(
