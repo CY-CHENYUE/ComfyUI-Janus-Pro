@@ -52,6 +52,8 @@ class JanusImageUnderstanding:
         torch.manual_seed(seed)
         if torch.backends.mps.is_available():
             torch.mps.manual_seed(seed)
+        elif torch.backends.cuda.is_available():
+            torch.cuda.manual_seed(seed)
 
         # 打印初始图像信息
         # print(f"Initial image shape: {image.shape}")

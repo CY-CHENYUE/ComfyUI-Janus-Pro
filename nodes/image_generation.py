@@ -58,6 +58,8 @@ class JanusImageGeneration:
         torch.manual_seed(seed)
         if torch.backends.mps.is_available():
             torch.mps.manual_seed(seed)
+        elif torch.backends.cuda.isavailable():
+            torch.cuda.manual_seed(seed)
 
         # 图像参数设置
         image_token_num = 576  # 24x24 patches
@@ -87,7 +89,7 @@ class JanusImageGeneration:
         input_ids = torch.LongTensor(input_ids)
 
         # 准备条件和无条件输入
-        device = torch.device("mps") if torch.backends.mps.is_available() else torch.device("cpu")
+        device = torch.device("mps") if torch.backends.mps.is_available() else torch.device("cuda")
         tokens = torch.zeros((parallel_size*2, len(input_ids)), dtype=torch.int).to(device)
         for i in range(parallel_size*2):
             tokens[i, :] = input_ids
