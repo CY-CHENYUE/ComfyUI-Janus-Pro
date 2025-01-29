@@ -1,6 +1,6 @@
 # ComfyUI-Janus-Pro
 
-English | [简体中文](README.md)
+English | [简体中文](README.md) | [日本語](README_JP.md)
 
 ComfyUI nodes for Janus-Pro, a unified multimodal understanding and generation framework.
 
