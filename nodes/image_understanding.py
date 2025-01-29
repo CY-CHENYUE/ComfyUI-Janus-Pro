@@ -48,9 +48,18 @@ class JanusImageUnderstanding:
         except ImportError:
             raise ImportError("Please install Janus using 'pip install -r requirements.txt'")
 
+        # 获取模型的设备和数据类型
+        device = model.device
+        dtype = model.dtype
+
         # 设置随机种子
         torch.manual_seed(seed)
-        torch.cuda.manual_seed(seed)
+        if device == 'cuda':
+            torch.cuda.manual_seed(seed)
+            torch.cuda.empty_cache()
+        elif device == 'mps':
+            # MPS设备不需要特殊的随机种子设置
+            pass
 
         # 打印初始图像信息
         # print(f"Initial image shape: {image.shape}")
@@ -65,7 +74,7 @@ class JanusImageUnderstanding:
         # print(f"After squeeze shape: {image.shape}")
         
         # 确保值范围在[0,1]之间并转换为uint8
-        image = (torch.clamp(image, 0, 1) * 255).cpu().numpy().astype(np.uint8)
+        image = (torch.clamp(image, 0, 1) * 255).to(dtype).cpu().numpy().astype(np.uint8)
         
         # print(f"Final numpy shape: {image.shape}")
         # print(f"Final numpy dtype: {image.dtype}")
@@ -87,7 +96,7 @@ class JanusImageUnderstanding:
             conversations=conversation, 
             images=[pil_image], 
             force_batchify=True
-        ).to(model.device)
+        ).to(model.device, dtype=dtype)
 
         inputs_embeds = model.prepare_inputs_embeds(**prepare_inputs)
 
