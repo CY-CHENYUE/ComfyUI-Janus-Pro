@@ -25,7 +25,7 @@ class JanusModelLoader:
         except ImportError:
             raise ImportError("Please install Janus using 'pip install -r requirements.txt'")
 
-        device = "cuda" if torch.cuda.is_available() else "cpu"
+        device = "mps" if torch.backends.mps.is_available() else "cuda"
         
         try:
             dtype = torch.bfloat16
@@ -52,4 +52,4 @@ class JanusModelLoader:
         
         vl_gpt = vl_gpt.to(dtype).to(device).eval()
         
-        return (vl_gpt, vl_chat_processor) 
+        return (vl_gpt, vl_chat_processor)
