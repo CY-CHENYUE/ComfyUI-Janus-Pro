@@ -50,7 +50,8 @@ class JanusImageUnderstanding:
 
         # 设置随机种子
         torch.manual_seed(seed)
-        torch.cuda.manual_seed(seed)
+        # torch.cuda.manual_seed(seed)
+        torch.manual_seed(seed)
 
         # 打印初始图像信息
         # print(f"Initial image shape: {image.shape}")
