@@ -25,13 +25,33 @@ class JanusModelLoader:
         except ImportError:
             raise ImportError("Please install Janus using 'pip install -r requirements.txt'")
 
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        
-        try:
+        # 确定设备和数据类型
+        if torch.cuda.is_available():
+            device = 'cuda'
             dtype = torch.bfloat16
+        elif torch.backends.mps.is_available():
+            device = 'mps'
+            dtype = torch.float32
+        else:
+            device = 'cpu'
+            dtype = torch.float32
+            
+        # 验证设备和数据类型的兼容性
+        try:
             torch.zeros(1, dtype=dtype, device=device)
         except RuntimeError:
-            dtype = torch.float16
+            print(f"Warning: {device} device with {dtype} is not supported, falling back to float32")
+            dtype = torch.float32
+            try:
+                torch.zeros(1, dtype=dtype, device=device)
+            except RuntimeError:
+                print(f"Error: {device} device is not working properly, falling back to CPU")
+                device = 'cpu'
+                dtype = torch.float32
+        
+        # 清理CUDA缓存
+        if device == 'cuda':
+            torch.cuda.empty_cache()
 
         # 获取ComfyUI根目录
         comfy_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
