@@ -1,0 +1,705 @@
+{
+  "last_node_id": 15,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        -890.7028198242188,
+        145.74244689941406
+      ],
+      "size": [
+        558.0405883789062,
+        734.1967163085938
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "c50ce281f8224295bddba2e183566382.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "DeepTranslatorTextNode",
+      "pos": [
+        959.2144165039062,
+        651.8242797851562
+      ],
+      "size": [
+        210,
+        270.0000305175781
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 7,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            6
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "文本"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DeepTranslatorTextNode"
+      },
+      "widgets_values": [
+        "auto",
+        "chinese (simplified)",
+        "disable",
+        "",
+        "",
+        "GoogleTranslator [free]",
+        "\n",
+        "proxy_hide",
+        "authorization_hide",
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1259.5263671875,
+        640.0438232421875
+      ],
+      "size": [
+        398.5522766113281,
+        289.2182312011719
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 6,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "提示：雨天拍摄的宁静时刻，一位年轻女子手拿透明雨伞。场景沐浴在柔和、散射的自然光中，营造出宁静而梦幻的氛围。背景略显模糊，树木和篱笆提供了柔和、失焦的背景。主体平静的表情和柔和的雨水增添了整体宁静和内省的氛围。\n\n构图：图像采用经典的构图风格，主体位置略微偏离中心，遵循三分法。雨伞充当引导线，将观看者的目光吸引到场景中。背景的柔焦增强了景深，强调了主体，同时保持了空间感。\n\n照明：照明是自然的，可能是由阴天散射的，营造出柔和均匀的照明。人工照明的使用很少，主要光源是周围环境。整体美学质量从低到非常高，通过柔焦和柔和色调的结合实现了梦幻和空灵的品质。\n\n相机：鉴于图像的清晰度和细节，这张照片可能是用高品质的 DSLR 或无反光镜相机拍摄的。光圈设置为中等值，可在景深和背景模糊之间实现良好的平衡。快门速度足够快，可以捕捉雨水的运动而不会产生运动模糊，同时 ISO 保持较低以最大限度地减少噪音。\n\n主观美学品质：图像散发出宁静和内省的主观美学品质，通过柔焦、柔和的色调和宁静的构图相结合，实现梦幻和空灵的品质。整体氛围令人平静，让观看者停下来思考。"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "ShowText|pysssss",
+      "pos": [
+        89.13626861572266,
+        1314.7081298828125
+      ],
+      "size": [
+        461.9999084472656,
+        232.10003662109375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 4,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            9
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Write a MidJourney prompt for this image within 500 words. If there is a person/character in the image you must refer to them as xgsddfa . Include information about lighting. If it is a photo you MUST include information about what camera was likely used and details such as aperture, shutter speed, ISO, etc. You MUST include information about the subjective aesthetic quality of the image from low to very high. Include information on the image's composition style, such as leading lines, rule of thirds, or symmetry. Specify the depth of field and whether the background is in focus or blurred. If applicable, mention the likely use of artificial or natural lighting sources. Do NOT use any ambiguous language."
+      ]
+    },
+    {
+      "id": 10,
+      "type": "DeepTranslatorTextNode",
+      "pos": [
+        929.9730834960938,
+        1244.7763671875
+      ],
+      "size": [
+        210,
+        270.0000305175781
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 9,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            8
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "文本"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DeepTranslatorTextNode"
+      },
+      "widgets_values": [
+        "auto",
+        "chinese (simplified)",
+        "disable",
+        "",
+        "",
+        "GoogleTranslator [free]",
+        "\n",
+        "proxy_hide",
+        "authorization_hide",
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1298.6263427734375,
+        1245.984619140625
+      ],
+      "size": [
+        398.5522766113281,
+        289.2182312011719
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 8,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "为这张图片写一个 500 字以内的 MidJourney 提示。如果图片中有人物/角色，则必须将其称为 xgsddfa 。包括照明信息。如果是照片，则必须包含可能使用的相机信息以及光圈、快门速度、ISO 等详细信息。您必须包含从低到非常高的图像主观美学质量信息。包括图像构图风格的信息，例如引导线、三分法或对称性。指定景深以及背景是否清晰或模糊。如果适用，请提及可能使用人工或自然光源。请勿使用任何模棱两可的语言。"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "ShowText|pysssss",
+      "pos": [
+        962.3487548828125,
+        110.3621597290039
+      ],
+      "size": [
+        812.87158203125,
+        347.9804382324219
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 18,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Prompt: A serene moment captured in a rainy day, featuring a young woman holding a transparent umbrella. The scene is bathed in soft, diffused natural light, creating a tranquil and dreamy atmosphere. The background is slightly blurred, with trees and a fence providing a gentle, out-of-focus backdrop. The subject's calm expression and the gentle rain add to the overall mood of serenity and introspection.\n\nComposition: The image employs a classic composition style, with the subject positioned slightly off-center, following the rule of thirds. The umbrella acts as a leading line, drawing the viewer's eye into the scene. The soft focus of the background enhances the depth of field, emphasizing the subject while maintaining a sense of space.\n\nLighting: The lighting is natural, likely diffused by overcast skies, creating a soft and even illumination. The use of artificial lighting is minimal, with the primary light source being the ambient environment. The overall aesthetic quality is low to very high, with a dreamy and ethereal quality achieved through the combination of soft focus and gentle color tones.\n\nCamera: The photograph was likely taken with a high-quality DSLR or mirrorless camera, given the sharpness and detail in the image. The aperture is set to a moderate value, allowing for a good balance between depth of field and background blur. The shutter speed is fast enough to capture the motion of the rain without motion blur, while the ISO remains low to minimize noise.\n\nSubjective Aesthetic Quality: The image exudes a subjective aesthetic quality of tranquility and introspection, with a dreamy and ethereal quality achieved through the combination of soft focus, gentle color tones, and the serene composition. The overall mood is calming, inviting the viewer to pause and reflect."
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Joy_caption_alpha_prompt",
+      "pos": [
+        -170.4186248779297,
+        552.1264038085938
+      ],
+      "size": [
+        926.6214599609375,
+        573.1306762695312
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            4,
+            17
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Joy_caption_alpha_prompt"
+      },
+      "widgets_values": [
+        "MidJourney",
+        "500",
+        "xgsddfa",
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "color": "#1b4669"
+    },
+    {
+      "id": 15,
+      "type": "JanusImageUnderstanding",
+      "pos": [
+        449.3792419433594,
+        181.64669799804688
+      ],
+      "size": [
+        400,
+        236
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "JANUS_MODEL",
+          "link": 14
+        },
+        {
+          "name": "processor",
+          "type": "JANUS_PROCESSOR",
+          "link": 15
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "name": "question",
+          "type": "STRING",
+          "link": 17,
+          "widget": {
+            "name": "question"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JanusImageUnderstanding"
+      },
+      "widgets_values": [
+        "Describe this image in detail.",
+        16424819673030,
+        "randomize",
+        0.1,
+        0.95,
+        1024,
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "type": "JanusModelLoader",
+      "pos": [
+        478.5138244628906,
+        -24.053613662719727
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "JANUS_MODEL",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "processor",
+          "type": "JANUS_PROCESSOR",
+          "links": [
+            15
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JanusModelLoader"
+      },
+      "widgets_values": [
+        "deepseek-ai/Janus-Pro-7B",
+        true
+      ]
+    },
+    {
+      "id": 12,
+      "type": "ImageResizeKJ",
+      "pos": [
+        -57.57402420043945,
+        176.19090270996094
+      ],
+      "size": [
+        315,
+        266
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "get_image_size",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "width_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width_input"
+          },
+          "shape": 7
+        },
+        {
+          "name": "height_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height_input"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        1280,
+        1280,
+        "bicubic",
+        true,
+        2,
+        0,
+        0,
+        "disabled"
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      4,
+      0,
+      6,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      8,
+      0,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      7,
+      0,
+      8,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      10,
+      0,
+      11,
+      0,
+      "STRING"
+    ],
+    [
+      9,
+      6,
+      0,
+      10,
+      0,
+      "STRING"
+    ],
+    [
+      10,
+      5,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      14,
+      0,
+      15,
+      0,
+      "JANUS_MODEL"
+    ],
+    [
+      15,
+      14,
+      1,
+      15,
+      1,
+      "JANUS_PROCESSOR"
+    ],
+    [
+      16,
+      12,
+      0,
+      15,
+      2,
+      "IMAGE"
+    ],
+    [
+      17,
+      4,
+      0,
+      15,
+      3,
+      "STRING"
+    ],
+    [
+      18,
+      15,
+      0,
+      7,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6090339887611795,
+      "offset": [
+        1032.873268964176,
+        380.0379585990041
+      ]
+    },
+    "node_versions": {
+      "comfy-core": "0.3.13",
+      "ComfyUI_Custom_Nodes_AlekPet": "a16cf4b0092471536be7815b6fb90f959b45c2d3",
+      "ComfyUI-Custom-Scripts": "bc8922deff73f59311c05cef27b9d4caaf43e87b",
+      "Comfyui_CXH_joy_caption": "894b66159ddc0cd146dc913d27ee6c82ace80491",
+      "janus-pro": "1.0.0",
+      "ComfyUI-KJNodes": "c9c8dcd5e7ed2f7669f130a5ced1e3005264a2de"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
